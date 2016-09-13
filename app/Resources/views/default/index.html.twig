@@ -13,8 +13,9 @@
             </div>
 
             {% if is_granted( "foo", "definitely-not-baa" ) %}
-                <div style="font-weight: bold; font-style: italic; color: red; text-align: center;">
-                    DIV with secured content.
+                <div style="font-weight: bold; font-style: italic; color: red; text-align: center; border: 3px dotted red; padding-top: 20px;">
+                    <p>DIV with secured content.</p>
+                    <p>I should not be visible.</p>
                 </div>
             {% endif %}
 
