@@ -15,6 +15,6 @@ class Voter1 extends Voter
     protected function voteOnAttribute( $attribute, $subject, TokenInterface $token )
     {
         ladybug_dump( "I'm Voter 1. I'm granting access." );
-        return static::ACCESS_GRANTED;
+        return true;
     }
 }

@@ -14,17 +14,12 @@ class Voter2 extends Voter
 
     protected function voteOnAttribute( $attribute, $subject, TokenInterface $token )
     {
-        if ( "foo" == $attribute )
+        if ( "foo" == $attribute && "baa" == $subject )
         {
-            if ( "baa" == $subject )
-            {
-                ladybug_dump( "I'm Voter 2. I'm granting access." );
-                return static::ACCESS_GRANTED;
-            }
-            ladybug_dump( "I'm Voter 2. I'm totally denying access." );
-            return static::ACCESS_DENIED;
+            ladybug_dump( "I'm Voter 2. I'm granting access." );
+            return true;
         }
-        ladybug_dump( "I'm Voter 2. I'm passing on this one." );
-        return static::ACCESS_ABSTAIN;
+        ladybug_dump( "I'm Voter 2. I'm totally denying access." );
+        return false;
     }
 }
