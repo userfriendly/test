@@ -1,0 +1,26 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/book/security.html
+security:
+    access_decision_manager:
+        strategy: unanimous
+
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    providers:
+        ldap:
+            id: cisco.ldap.userprovider
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            pattern: ^/
+            anonymous:  true
+            simple_form:
+                authenticator: cisco.ldap.authenticator
+                check_path:    CiscoSystemsDirectoryBundle_logincheck
+                login_path:    CiscoSystemsDirectoryBundle_login
+            logout:
+                invalidate_session: true
