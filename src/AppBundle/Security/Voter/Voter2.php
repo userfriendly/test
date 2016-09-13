@@ -16,9 +16,15 @@ class Voter2 extends Voter
     {
         if ( "foo" == $attribute )
         {
-            if ( "baa" == $subject ) return static::ACCESS_GRANTED;
+            if ( "baa" == $subject )
+            {
+                ladybug_dump( "I'm Voter 2. I'm granting access." );
+                return static::ACCESS_GRANTED;
+            }
+            ladybug_dump( "I'm Voter 2. I'm totally denying access." );
+            return static::ACCESS_DENIED;
         }
-        ladybug_dump( "I'm Voter 2. I'm totally denying access." );
-        return static::ACCESS_DENIED;
+        ladybug_dump( "I'm Voter 2. I'm passing on this one." );
+        return static::ACCESS_ABSTAIN;
     }
 }
