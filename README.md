@@ -1,4 +1,1 @@
-test
-====
-
-A Symfony project created on September 13, 2016, 6:31 pm.
+A simple test project to figure out why unanimous strategy in access decision manager is not working as expected.
